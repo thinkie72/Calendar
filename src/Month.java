@@ -1,3 +1,4 @@
+import java.awt.*;
 import java.util.ArrayList;
 
 public class Month {
@@ -38,6 +39,10 @@ public class Month {
 
     public void setMonthNumber(int monthNumber) {
         this.monthNumber = monthNumber;
+    }
+
+    public void paint(Graphics g) {
+
     }
 
     // Other Methods
