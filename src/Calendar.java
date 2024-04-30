@@ -54,8 +54,9 @@ public class Calendar implements MouseListener, MouseMotionListener {
 //                (e.getY() >= CalendarView.ARROW_Y && e.getY() <= CalendarView.ARROW_Y + CalendarView.ARROW_SIZE)) {
 //            window.setMainScreen();
 //        }
+        int y = CalendarView.BUFFER + CalendarView.TITLE_BAR + 10;
         if ((e.getX() >= CalendarView.BUFFER && e.getX() <= CalendarView.BUFFER + CalendarView.DAY_WIDTH) &&
-                (e.getY() >= 82 && e.getY() <= 82 + CalendarView.DAY_HEIGHT)) {
+                (e.getY() >= y && e.getY() <= y + CalendarView.DAY_HEIGHT)) {
             window.setMainScreen();
         }
 
