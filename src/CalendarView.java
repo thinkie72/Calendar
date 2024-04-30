@@ -26,10 +26,12 @@ public class CalendarView extends JFrame {
     private Calendar c;
 
     private boolean mainScreen;
+    private int monthIndex;
 
     // Constructor
     public CalendarView(Calendar c) {
         this.mainScreen = true;
+        this.monthIndex = 0;
         this.c = c;
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
@@ -67,9 +69,9 @@ public class CalendarView extends JFrame {
         }
         g.setFont(new Font(Font.MONOSPACED, Font.BOLD, MONTH_SIZE));
         g.drawString("January", MONTH_X, MONTH_Y);
-        g.drawImage(new ImageIcon("Resources/AbcteachImage1.png").getImage(), LEFT_X, ARROW_Y, ARROW_SIZE,
+        g.drawImage(new ImageIcon("Resources/Abc-teachImage1.png").getImage(), LEFT_X, ARROW_Y, ARROW_SIZE,
                 ARROW_SIZE, this);
-        g.drawImage(new ImageIcon("Resources/AbcteachImage2.png").getImage(), RIGHT_X, ARROW_Y, ARROW_SIZE,
+        g.drawImage(new ImageIcon("Resources/Abc-teachImage2.png").getImage(), RIGHT_X, ARROW_Y, ARROW_SIZE,
                 ARROW_SIZE, this);
     }
 

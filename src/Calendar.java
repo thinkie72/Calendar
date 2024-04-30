@@ -23,7 +23,7 @@ import java.awt.event.MouseMotionListener;
         // Constructors
         public Calendar() {
             window = new CalendarView(this);
-
+            months = new Month[12];
             // Getters and Setters
             // Initialize the front-end
             this.window = new CalendarView(this);

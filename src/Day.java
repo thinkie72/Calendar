@@ -2,19 +2,15 @@ import java.util.ArrayList;
 
 public class Day {
     // Instance Variables
-    private int x, y;
-    private ArrayList<String> importances;
+    private String significance;
     private Month month;
     private int number;
 
     // Constructor
-    public Day(int x, int y, Month month, int number, String importance) {
-       this.x = x;
-       this.y = y;
+    public Day(Month month, int number, String s) {
        this.month = month;
        this.number = number;
-       importances = new ArrayList<>();
-       importances.add(importance);
+       this.significance = s;
     }
 
     // Accessor and Mutator Methods
