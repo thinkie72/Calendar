@@ -14,13 +14,6 @@ public class Day {
     }
 
     // Accessor and Mutator Methods
-    public void setX(int x) {
-        this.x = x;
-    }
-
-    public void setY(int y) {
-        this.y = y;
-    }
 
     public Month getMonth() {
         return month;
@@ -30,5 +23,9 @@ public class Day {
         return number;
     }
 
+    public String getSignificance() {
+        return significance;
+    }
     // Other Methods
+
 }

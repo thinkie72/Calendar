@@ -55,7 +55,7 @@ public class CalendarView extends JFrame {
         else paintDay(g);
     }
 
-    public void paintMonth (Graphics g) {
+    public void paintMonth(Graphics g) {
         int x = BUFFER;
         int y = BUFFER + TITLE_BAR + 10;
         g.setColor(Color.BLACK);
@@ -82,5 +82,7 @@ public class CalendarView extends JFrame {
         g.drawRect(LIST_X, LIST_Y, LIST_WIDTH, LIST_HEIGHT);
         g.setFont(new Font(Font.MONOSPACED, Font.BOLD, 50));
         g.drawString("New Year's Day", 225, 222);
+        g.drawImage(new ImageIcon("Resources/Abc-teachImage1.png").getImage(), LEFT_X, ARROW_Y, ARROW_SIZE,
+                ARROW_SIZE, this);
     }
 }
