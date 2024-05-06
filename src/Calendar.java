@@ -27,7 +27,6 @@ import static java.lang.Integer.parseInt;
         // Constructor
         // Constructors
         public Calendar() {
-            window = new CalendarView(this);
             months = new Month[12];
             readMonths();
             readDays();
@@ -132,15 +131,30 @@ import static java.lang.Integer.parseInt;
 //                (e.getY() >= CalendarView.ARROW_Y && e.getY() <= CalendarView.ARROW_Y + CalendarView.ARROW_SIZE)) {
 //            window.setMainScreen();
 //        }
-        if ((e.getX() >= CalendarView.BUFFER && e.getX() <= CalendarView.BUFFER + CalendarView.DAY_WIDTH) &&
-                (e.getY() >= 82 && e.getY() <= 82 + CalendarView.DAY_HEIGHT)) {
-            window.setMainScreen();
+        if ((e.getX() >= CalendarView.BUFFER && e.getX() <= CalendarView.BUFFER + CalendarView.DAY_WIDTH * 7) &&
+                (e.getY() >= 82 && e.getY() <= 82 + CalendarView.DAY_HEIGHT * 5)) {
+            if (findDay(e)) {
+                window.setMainScreen();
+            }
         }
 
         window.repaint();
 
         // For demo purposes only
         System.out.println("mousePressed event handler executed.");
+    }
+
+    public boolean findDay(MouseEvent e) {
+        int x = e.getX() - CalendarView.BUFFER;
+        int y = e.getY() - CalendarView.BUFFER - CalendarView.TITLE_BAR - 10;
+        int col = x / CalendarView.DAY_WIDTH;
+        int row = y / CalendarView.DAY_HEIGHT;
+        int index = row * 7 + col;
+        if (index < getMonths()[window.getMonthIndex()].getNumDays()) {
+            window.setDayIndex(index);
+            return true;
+        }
+        return false;
     }
 
     @Override

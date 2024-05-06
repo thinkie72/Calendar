@@ -27,11 +27,13 @@ public class CalendarView extends JFrame {
 
     private boolean mainScreen;
     private int monthIndex;
+    private int dayIndex;
 
     // Constructor
     public CalendarView(Calendar c) {
         this.mainScreen = true;
         this.monthIndex = 0;
+        this.dayIndex = 0;
         this.c = c;
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
@@ -41,6 +43,14 @@ public class CalendarView extends JFrame {
 
     // Getters and Setters
 
+
+    public int getMonthIndex() {
+        return monthIndex;
+    }
+
+    public void setDayIndex(int dayIndex) {
+        this.dayIndex = dayIndex;
+    }
 
     public void setMainScreen() {
         this.mainScreen = !mainScreen;
@@ -68,7 +78,7 @@ public class CalendarView extends JFrame {
             x = BUFFER;
         }
         g.setFont(new Font(Font.MONOSPACED, Font.BOLD, MONTH_SIZE));
-        g.drawString("January", MONTH_X, MONTH_Y);
+        g.drawString(c.getMonths()[monthIndex].getName(), MONTH_X, MONTH_Y);
         g.drawImage(new ImageIcon("Resources/Abc-teachImage1.png").getImage(), LEFT_X, ARROW_Y, ARROW_SIZE,
                 ARROW_SIZE, this);
         g.drawImage(new ImageIcon("Resources/Abc-teachImage2.png").getImage(), RIGHT_X, ARROW_Y, ARROW_SIZE,
@@ -78,10 +88,10 @@ public class CalendarView extends JFrame {
     public void paintDay (Graphics g) {
         g.setColor(Color.BLACK);
         g.setFont(new Font(Font.MONOSPACED, Font.BOLD, DAY_SIZE));
-        g.drawString("1", DAY_X, DAY_Y);
+        g.drawString(c.getMonths()[monthIndex].getDays()[dayIndex].getNumber() + "", DAY_X, DAY_Y);
         g.drawRect(LIST_X, LIST_Y, LIST_WIDTH, LIST_HEIGHT);
         g.setFont(new Font(Font.MONOSPACED, Font.BOLD, 50));
-        g.drawString("New Year's Day", 225, 222);
+        g.drawString(c.getMonths()[monthIndex].getDays()[dayIndex].getSignificance(), 225, 222);
         g.drawImage(new ImageIcon("Resources/Abc-teachImage1.png").getImage(), LEFT_X, ARROW_Y, ARROW_SIZE,
                 ARROW_SIZE, this);
     }
