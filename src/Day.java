@@ -1,3 +1,4 @@
+import java.awt.*;
 import java.util.ArrayList;
 
 public class Day {
@@ -27,5 +28,13 @@ public class Day {
         return significance;
     }
     // Other Methods
+
+    public void paint(Graphics g) {
+        String copy = significance;
+        String[] split = copy.split(" ");
+        for (int i = 0; i < split.length; i++) {
+            g.drawString(split[i], 225, 200 + 80 * i);
+        }
+    }
 
 }

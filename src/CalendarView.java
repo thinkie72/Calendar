@@ -12,14 +12,14 @@ public class CalendarView extends JFrame {
                             LEFT_X = 375,
                             RIGHT_X = 615,
                             ARROW_Y = 45,
-                            MONTH_X = 425,
+                            MONTH_X = 400,
                             MONTH_Y = 70,
                             MONTH_SIZE = 40,
                             ARROW_SIZE = 25,
                             DAY_X = 100,
                             DAY_Y = 122,
                             DAY_SIZE = 100,
-                            LIST_X = 200,
+                            LIST_X = 205,
                             LIST_Y = 122,
                             LIST_WIDTH = 600,
                             LIST_HEIGHT = 400;
@@ -48,8 +48,22 @@ public class CalendarView extends JFrame {
         return monthIndex;
     }
 
+    public void incrementMonthIndex() {
+        if (monthIndex == 11) monthIndex = 0;
+        else monthIndex++;
+    }
+
+    public void decrementMonthIndex() {
+        if (monthIndex == 0) monthIndex = 11;
+        else monthIndex--;
+    }
+
     public void setDayIndex(int dayIndex) {
         this.dayIndex = dayIndex;
+    }
+
+    public boolean isMainScreen() {
+        return mainScreen;
     }
 
     public void setMainScreen() {
@@ -90,8 +104,8 @@ public class CalendarView extends JFrame {
         g.setFont(new Font(Font.MONOSPACED, Font.BOLD, DAY_SIZE));
         g.drawString(c.getMonths()[monthIndex].getDays()[dayIndex].getNumber() + "", DAY_X, DAY_Y);
         g.drawRect(LIST_X, LIST_Y, LIST_WIDTH, LIST_HEIGHT);
-        g.setFont(new Font(Font.MONOSPACED, Font.BOLD, 50));
-        g.drawString(c.getMonths()[monthIndex].getDays()[dayIndex].getSignificance(), 225, 222);
+        g.setFont(new Font(Font.MONOSPACED, Font.BOLD, 80));
+        c.getMonths()[monthIndex].getDays()[dayIndex].paint(g);
         g.drawImage(new ImageIcon("Resources/Abc-teachImage1.png").getImage(), LEFT_X, ARROW_Y, ARROW_SIZE,
                 ARROW_SIZE, this);
     }

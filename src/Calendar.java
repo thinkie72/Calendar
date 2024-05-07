@@ -123,19 +123,21 @@ import static java.lang.Integer.parseInt;
 
     @Override
     public void mousePressed(MouseEvent e) {
+        if (window.isMainScreen()) {
         // Check for arrow click
-//        if ((e.getX() >= CalendarView.LEFT_X && e.getX() <= CalendarView.LEFT_X + CalendarView.ARROW_SIZE) &&
-//                (e.getY() >= CalendarView.ARROW_Y && e.getY() <= CalendarView.ARROW_Y + CalendarView.ARROW_SIZE)) {
-//            window.setMainScreen();
-//        } else if ((e.getX() >= CalendarView.RIGHT_X && e.getX() <= CalendarView.RIGHT_X + CalendarView.ARROW_SIZE) &&
-//                (e.getY() >= CalendarView.ARROW_Y && e.getY() <= CalendarView.ARROW_Y + CalendarView.ARROW_SIZE)) {
-//            window.setMainScreen();
-//        }
-        if ((e.getX() >= CalendarView.BUFFER && e.getX() <= CalendarView.BUFFER + CalendarView.DAY_WIDTH * 7) &&
+            if ((e.getX() >= CalendarView.LEFT_X && e.getX() <= CalendarView.LEFT_X + CalendarView.ARROW_SIZE) &&
+                    (e.getY() >= CalendarView.ARROW_Y && e.getY() <= CalendarView.ARROW_Y + CalendarView.ARROW_SIZE)) {
+                window.decrementMonthIndex();
+            } else if ((e.getX() >= CalendarView.RIGHT_X && e.getX() <= CalendarView.RIGHT_X + CalendarView.ARROW_SIZE) &&
+                    (e.getY() >= CalendarView.ARROW_Y && e.getY() <= CalendarView.ARROW_Y + CalendarView.ARROW_SIZE)) {
+                window.incrementMonthIndex();
+            } else if (window.isMainScreen() && (e.getX() >= CalendarView.BUFFER && e.getX() <= CalendarView.BUFFER + CalendarView.DAY_WIDTH * 7) &&
                 (e.getY() >= 82 && e.getY() <= 82 + CalendarView.DAY_HEIGHT * 5)) {
-            if (findDay(e)) {
-                window.setMainScreen();
+                if (findDay(e)) window.setMainScreen();
             }
+        } else if ((e.getX() >= CalendarView.LEFT_X && e.getX() <= CalendarView.LEFT_X + CalendarView.ARROW_SIZE) &&
+                (e.getY() >= CalendarView.ARROW_Y && e.getY() <= CalendarView.ARROW_Y + CalendarView.ARROW_SIZE)) {
+            window.setMainScreen();
         }
 
         window.repaint();
