@@ -4,25 +4,26 @@ import java.awt.*;
 public class CalendarView extends JFrame {
     // Instance Variables
     public static final int WINDOW_WIDTH = 1000,
-                            WINDOW_HEIGHT = 622,
-                            TITLE_BAR = 22,
-                            BUFFER = 50,
-                            DAY_WIDTH = 125,
-                            DAY_HEIGHT = 100,
-                            LEFT_X = 375,
-                            RIGHT_X = 615,
-                            ARROW_Y = 45,
-                            MONTH_X = 400,
-                            MONTH_Y = 70,
-                            MONTH_SIZE = 40,
-                            ARROW_SIZE = 25,
-                            DAY_X = 100,
-                            DAY_Y = 122,
-                            DAY_SIZE = 100,
-                            LIST_X = 205,
-                            LIST_Y = 122,
-                            LIST_WIDTH = 600,
-                            LIST_HEIGHT = 400;
+            WINDOW_HEIGHT = 622,
+            TITLE_BAR = 22,
+            BUFFER = 50,
+            DAY_WIDTH = 125,
+            DAY_HEIGHT = 100,
+            LEFT_X = 375,
+            RIGHT_X = 615,
+            ARROW_Y = 45,
+            MONTH_X = 400,
+            MONTH_Y = 70,
+            MONTH_SIZE = 40,
+            ARROW_SIZE = 25,
+            DAY_X = 100,
+            DAY_Y = 122,
+            DAY_SIZE = 100,
+            LIST_X = 205,
+            LIST_Y = 122,
+            LIST_WIDTH = 600,
+            LIST_HEIGHT = 400,
+            NUM_SIZE = 10;
     private Calendar c;
 
     private boolean mainScreen;
@@ -83,9 +84,16 @@ public class CalendarView extends JFrame {
         int x = BUFFER;
         int y = BUFFER + TITLE_BAR + 10;
         g.setColor(Color.BLACK);
+        int num = 0;
+        int days = c.getMonths()[monthIndex].getNumDays();
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 7; j++) {
+                num = i * 7 + j + 1;
                 g.drawRect(x, y, DAY_WIDTH, DAY_HEIGHT);
+                if (num <= days) {
+                    g.setFont(new Font(Font.MONOSPACED, Font.BOLD, NUM_SIZE));
+                    g.drawString(num + "", x + 3, y + 10);
+                }
                 x += DAY_WIDTH;
             }
             y += DAY_HEIGHT;
@@ -99,7 +107,7 @@ public class CalendarView extends JFrame {
                 ARROW_SIZE, this);
     }
 
-    public void paintDay (Graphics g) {
+    public void paintDay(Graphics g) {
         g.setColor(Color.BLACK);
         g.setFont(new Font(Font.MONOSPACED, Font.BOLD, DAY_SIZE));
         g.drawString(c.getMonths()[monthIndex].getDays()[dayIndex].getNumber() + "", DAY_X, DAY_Y);

@@ -9,9 +9,9 @@ public class Day {
 
     // Constructor
     public Day(Month month, int number, String s) {
-       this.month = month;
-       this.number = number;
-       this.significance = s;
+        this.month = month;
+        this.number = number;
+        this.significance = s;
     }
 
     // Accessor and Mutator Methods
