@@ -332,7 +332,7 @@
 27,Jukebox Day
 28,French Toast Day
 29,Lemon Cream Pie Day
-30,Mason Jar Day
+30,Mason Jar Da\y
 1,Peppermint Bark Day
 2,Mutt Day
 3,Candle Day

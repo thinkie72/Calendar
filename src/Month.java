@@ -5,6 +5,8 @@ import java.util.Scanner;
 
 import static java.lang.Integer.parseInt;
 
+// By Tyler Hinkie in 05.2024
+
 public class Month {
     // Instance Variables
     private String name;
@@ -25,20 +27,8 @@ public class Month {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public int getNumDays() {
         return numDays;
-    }
-
-    public void setNumDays(int numDays) {
-        this.numDays = numDays;
-    }
-
-    public int getMonthNumber() {
-        return monthNumber;
     }
 
     public void setMonthNumber(int monthNumber) {
@@ -52,10 +42,4 @@ public class Month {
     public void setDay(int i, Day d) {
         days[i] = d;
     }
-
-    public void paint(Graphics g) {
-
-    }
-
-    // Other Methods
 }

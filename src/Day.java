@@ -1,6 +1,8 @@
 import java.awt.*;
 import java.util.ArrayList;
 
+// By Tyler Hinkie in 05.2024
+
 public class Day {
     // Instance Variables
     private String significance;
@@ -27,8 +29,9 @@ public class Day {
     public String getSignificance() {
         return significance;
     }
-    // Other Methods
 
+    // Other Methods
+    // This paint method formats the significances to split each word up to make it fit better on the screen
     public void paint(Graphics g) {
         String copy = significance;
         String[] split = copy.split(" ");

@@ -1,6 +1,8 @@
 import javax.swing.*;
 import java.awt.*;
 
+// By Tyler Hinkie in 05.2024
+
 public class CalendarView extends JFrame {
     // Instance Variables
     public static final int WINDOW_WIDTH = 1000,
@@ -21,7 +23,7 @@ public class CalendarView extends JFrame {
             DAY_SIZE = 100,
             LIST_X = 205,
             LIST_Y = 122,
-            LIST_WIDTH = 600,
+            LIST_WIDTH = 750,
             LIST_HEIGHT = 400,
             NUM_SIZE = 10;
     private Calendar c;
@@ -43,7 +45,6 @@ public class CalendarView extends JFrame {
     }
 
     // Getters and Setters
-
 
     public int getMonthIndex() {
         return monthIndex;
@@ -73,6 +74,8 @@ public class CalendarView extends JFrame {
 
     // Other Methods
     @Override
+    // I split this up into paintMonth() and paintDay() to have two different paint methods for each screen so that with
+    // my variables I could use the same information regardless what day or month it was
     public void paint(Graphics g) {
         g.setColor(Color.WHITE);
         g.fillRect(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT);

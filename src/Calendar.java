@@ -56,15 +56,15 @@ public class Calendar implements MouseListener, MouseMotionListener {
                 Scanner myReader = new Scanner(myObj);
                 myReader.useDelimiter(",");
 
-                int i = 0;
+                int index = 0;
 
                 while (myReader.hasNextLine()) {
                     String str = myReader.nextLine();
 
-                    // trim spaces
+                    // Split values at each comma
                     String[] splitString = str.split(",");
-                    months[i] = new Month(splitString[0], parseInt(splitString[1]), parseInt(splitString[2]));
-                    i++;
+                    months[index] = new Month(splitString[0], parseInt(splitString[1]), parseInt(splitString[2]));
+                    index++;
                 }
                 myReader.close();
             }
@@ -92,9 +92,11 @@ public class Calendar implements MouseListener, MouseMotionListener {
                     // trim spaces
                     String[] splitString = str.split(",");
                     x = parseInt(splitString[0]);
+                    // This check is to change the month index (x) if it is a first day of the month
                     if (x == 1) {
                         i++;
                     }
+                    // The day number is always one greater than the index because it is zero indexed
                     months[i].setDay(x - 1, new Day(months[i], x, splitString[1]));
                 }
                 myReader.close();
